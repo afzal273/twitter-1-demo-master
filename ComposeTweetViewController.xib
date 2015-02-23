@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeTweetViewController">
+            <connections>
+                <outlet property="thumbImageView" destination="E1X-cO-h31" id="asW-Jk-8Gf"/>
+                <outlet property="tweetText" destination="C79-Yi-Iqj" id="Lmz-J0-IF5"/>
+                <outlet property="userNameLabel" destination="pQe-M0-xoD" id="BTQ-Ua-bkG"/>
+                <outlet property="userTwitterHandleLabel" destination="WaR-0R-73D" id="tct-XN-eEg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E1X-cO-h31">
+                    <rect key="frame" x="8" y="16" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="6Ik-6R-MQg"/>
+                        <constraint firstAttribute="width" constant="48" id="n5W-AV-aCR"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afzal Syed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQe-M0-xoD">
+                    <rect key="frame" x="71" y="16" width="241" height="16"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@afzalsyed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaR-0R-73D">
+                    <rect key="frame" x="71" y="37" width="241" height="16"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C79-Yi-Iqj">
+                    <rect key="frame" x="8" y="89" width="304" height="230"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="C79-Yi-Iqj" firstAttribute="top" secondItem="E1X-cO-h31" secondAttribute="bottom" constant="25" id="1Z3-KQ-qVb"/>
+                <constraint firstItem="C79-Yi-Iqj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Gvk-R9-9hY"/>
+                <constraint firstAttribute="trailing" secondItem="pQe-M0-xoD" secondAttribute="trailing" constant="8" id="O8G-q6-4DQ"/>
+                <constraint firstItem="pQe-M0-xoD" firstAttribute="leading" secondItem="E1X-cO-h31" secondAttribute="trailing" constant="15" id="S6C-bP-1tK"/>
+                <constraint firstItem="WaR-0R-73D" firstAttribute="leading" secondItem="E1X-cO-h31" secondAttribute="trailing" constant="15" id="X1B-sY-PzB"/>
+                <constraint firstItem="E1X-cO-h31" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="Y5M-yg-rip"/>
+                <constraint firstAttribute="bottom" secondItem="C79-Yi-Iqj" secondAttribute="bottom" constant="185" id="a4g-9s-6OG"/>
+                <constraint firstItem="pQe-M0-xoD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="bjM-0M-bz5"/>
+                <constraint firstAttribute="trailing" secondItem="C79-Yi-Iqj" secondAttribute="trailing" constant="8" id="cbK-nw-aaX"/>
+                <constraint firstAttribute="trailing" secondItem="WaR-0R-73D" secondAttribute="trailing" constant="8" id="ji1-d1-MXH"/>
+                <constraint firstItem="E1X-cO-h31" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="lLH-6v-KL8"/>
+                <constraint firstItem="WaR-0R-73D" firstAttribute="top" secondItem="pQe-M0-xoD" secondAttribute="bottom" constant="5" id="n6L-5M-C5O"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="325" y="520"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
