@@ -2,7 +2,7 @@
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: Around 18
+Time spent: Around 18 to 20 hours
 
 ### Features
 
