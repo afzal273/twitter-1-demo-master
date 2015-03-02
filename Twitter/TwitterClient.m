@@ -9,8 +9,8 @@
 #import "TwitterClient.h"
 #import "Tweet.h"
 
-NSString *const kTwitterConsumerKey = @"Sk9M0CXgu5hlqCU90yUYXk11F";
-NSString *const kTwitterConsumerSecret = @"GkF4wvDrIW7Rj8MWg6g86ta62FFaFZyvPjfHx8ttdUUxoztfmR";
+NSString *const kTwitterConsumerKey = @"put consumer key here";
+NSString *const kTwitterConsumerSecret = @"put secret here";
 NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
 
 // Class extension
