@@ -2,13 +2,7 @@
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-<<<<<<< Updated upstream
-Time spent: Around 18 to 20 hours
-||||||| merged common ancestors
-Time spent: Around 18
-=======
 Time spent: 8h
->>>>>>> Stashed changes
 
 ### Features
 
