@@ -1,12 +1,12 @@
 //
-//  TweetsViewController.m
+//  MentionsViewController.m
 //  Twitter
 //
-//  Created by Syed, Afzal on 2/19/15.
+//  Created by Syed, Afzal on 2/28/15.
 //  Copyright (c) 2015 afzalsyed. All rights reserved.
 //
 
-#import "TweetsViewController.h"
+#import "MentionsViewController.h"
 #import "User.h"
 #import "TwitterClient.h"
 #import "Tweet.h"
@@ -16,21 +16,21 @@
 #import "TweetDetailViewController.h"
 #import "ProfileViewController.h"
 
-@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, ComposeTweetViewControllerDelegate, TweetDetailViewControllerDelegate, TweetCellDelegate>
+@interface MentionsViewController ()<UITableViewDataSource, UITableViewDelegate, ComposeTweetViewControllerDelegate, TweetDetailViewControllerDelegate, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
-@implementation TweetsViewController
+@implementation MentionsViewController
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil] forCellReuseIdentifier:@"TweetCell"];
-
+    
     UIColor *myBlueColor = [UIColor colorWithRed:0.251 green:0.6 blue:1 alpha:1];
     
     NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -39,12 +39,12 @@
     
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
     
-    self.tableView.estimatedRowHeight = 105;
-   // self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.estimatedRowHeight = 105;
+     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"Home";
+    self.title = @"Mentions";
     self.navigationController.navigationBar.backgroundColor = myBlueColor;
     self.navigationController.navigationBar.barTintColor = myBlueColor;
     
@@ -59,13 +59,13 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTweets) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
-
+    
     [self showLoadingHUD];
     [self refreshTweets];
     
-
-}
     
+}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -88,7 +88,7 @@
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:tdvc];
     nvc.navigationBar.translucent = NO;
     
-
+    
     
     CATransition *tdvctransition = [CATransition animation];
     tdvctransition.type = kCATransitionPush;
@@ -125,7 +125,7 @@
 
 
 - (void)refreshTweets {
-    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+    [[TwitterClient sharedInstance] mentionsTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
         if (error) {
             NSLog(@"There is an error: %@", [error userInfo]);
         } else {
@@ -164,13 +164,13 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"max_id"] = lastTweetIdString;
     
-    [[TwitterClient sharedInstance] homeTimelineWithParams:params completion:^(NSArray *tweets, NSError *error) {
+    [[TwitterClient sharedInstance] mentionsTimelineWithParams:params completion:^(NSArray *tweets, NSError *error) {
         if (tweets != nil && tweets.count > 0) {
-                //NSLog(@"Got %ld more tweets", tweets.count);
-                NSMutableArray *allTweets = [NSMutableArray arrayWithArray:self.tweets];
-                [allTweets addObjectsFromArray:tweets];
-                self.tweets = [allTweets copy];
-                [self.tableView reloadData];
+            //NSLog(@"Got %ld more tweets", tweets.count);
+            NSMutableArray *allTweets = [NSMutableArray arrayWithArray:self.tweets];
+            [allTweets addObjectsFromArray:tweets];
+            self.tweets = [allTweets copy];
+            [self.tableView reloadData];
             
         } else {
             NSLog(@"Couldn't get more tweets");

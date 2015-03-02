@@ -9,8 +9,8 @@
 #import "TwitterClient.h"
 #import "Tweet.h"
 
-NSString *const kTwitterConsumerKey = @“xxx”;
-NSString *const kTwitterConsumerSecret = @“xxx”;
+NSString *const kTwitterConsumerKey = @"Sk9M0CXgu5hlqCU90yUYXk11F";
+NSString *const kTwitterConsumerSecret = @"GkF4wvDrIW7Rj8MWg6g86ta62FFaFZyvPjfHx8ttdUUxoztfmR";
 NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
 
 // Class extension
@@ -160,6 +160,28 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
         completion(error);
     }];
     
+}
+
+- (void)userTimelineWithParams:(NSDictionary *)params user:(User *)user completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    User *forUser = user ? user : [User currentUser];
+    NSString *getUrl = [NSString stringWithFormat:@"1.1/statuses/user_timeline.json?include_rts=1&count=20&include_my_retweet=1&screen_name=%@", forUser.screenName];
+    [self GET:getUrl parameters:params
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+          completion(tweets, nil);
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          completion(nil, error);
+      }];
+}
+
+- (void)mentionsTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/statuses/mentions_timeline.json?include_my_retweet=1" parameters:params
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+          completion(tweets, nil);
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          completion(nil, error);
+      }];
 }
 
 

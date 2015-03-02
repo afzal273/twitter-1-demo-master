@@ -17,6 +17,7 @@
 @protocol TweetCellDelegate <NSObject>
 
 - (void)onReplyButton:(TweetCell *)tweetCell;
+- (void)onImageTapGesture:(TweetCell *)tweetCell;
 
 @end
 

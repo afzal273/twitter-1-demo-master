@@ -12,6 +12,7 @@
 #import "User.h"
 #import "Tweet.h"
 #import "TweetsViewController.h"
+#import "TwitterMenuViewController.h"
 
 
 @interface AppDelegate ()
@@ -33,7 +34,7 @@
     
     if (user != nil) {
         //NSLog(@"Welcome %@", user.name);
-        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc]init]];
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[TwitterMenuViewController alloc]init]];
     } else {
         //NSLog(@"User not logged in");
         self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc]init]];

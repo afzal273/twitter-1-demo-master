@@ -55,10 +55,10 @@
     if (tweet.retweetedTweet) {
         displayedTweet = tweet.retweetedTweet;
 
-        self.durationTopViewContraint.constant = 28;
-        self.twitterHandleTopViewConstraint.constant = 28;
-        self.userNameTopViewConstraint.constant = 28;
-        self.thumbImageTopViewConstraint.constant = 28;
+        self.durationTopViewContraint.constant = 22;
+        self.twitterHandleTopViewConstraint.constant = 22;
+        self.userNameTopViewConstraint.constant = 22;
+        self.thumbImageTopViewConstraint.constant = 22;
         
         [self.topRetweetedButton setImage:[[UIImage imageNamed:@"retweet_hover.png" ] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         self.retweetedByLabel.text = [NSString stringWithFormat:@"%@ retweeted", user.name];
@@ -78,7 +78,10 @@
 
     }
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onImageTapGesture:)];
+    
     [self.thumbImageView setImageWithURL:[NSURL URLWithString:displayedTweet.user.profileImageUrl]];
+    [self.thumbImageView addGestureRecognizer:tapGesture];
     self.usernameLabel.text = displayedTweet.user.screenName;
     
     self.twitterHandleLabel.text = [NSString stringWithFormat:@"@%@", displayedTweet.user.screenName];
@@ -143,6 +146,10 @@
 
 - (IBAction)onReplyButton:(id)sender {
     [self.delegate onReplyButton:self];
+}
+
+- (void) onImageTapGesture: (id)sender {
+    [self.delegate onImageTapGesture:self];
 }
 
 - (IBAction)onRetweetButton:(id)sender {
