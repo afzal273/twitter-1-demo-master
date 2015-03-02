@@ -36,7 +36,11 @@ Time spent: 8h
 
 Walkthrough of all user stories:
 
-![Video Walkthrough](twitter_demo_week3.gif)
 ![Video Walkthrough](twitter_demo_week4.gif)
+
+
+![Video Walkthrough](twitter_demo_week3.gif)
+
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
